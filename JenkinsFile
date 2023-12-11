@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('git') {
+            steps {
+                 git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/NaifarSirine/Foyer2324.git'
+            }
+        }
+        stage('date') {
+            steps {
+                sh 'date'
+            }
+        }
+       
+    }
+}
